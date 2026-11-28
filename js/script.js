@@ -59,11 +59,20 @@ document.onclick = (e) => {
 const itemDetailModal = document.querySelector("#item-detail-modal");
 const itemDetailButtons = document.querySelectorAll(".item-detail-button");
 
-itemDetailButtons.forEach((btn) => {
-  btn.onclick = (e) => {
-    e.preventDefault();
+// itemDetailButtons.forEach((btn) => {
+//   btn.onclick = (e) => {
+//     e.preventDefault();
+//     itemDetailModal.style.display = "flex";
+//   };
+// });
+
+document.addEventListener("click", function (e) {
+  // Cari apakah yang diklik adalah .item-detail-button (atau icon <svg>/<use> di dalamnya)
+  const detailBtn = e.target.closest(".item-detail-button");
+  if (detailBtn) {
     itemDetailModal.style.display = "flex";
-  };
+    e.preventDefault();
+  }
 });
 
 // for (const btn of itemDetailButtons) {
